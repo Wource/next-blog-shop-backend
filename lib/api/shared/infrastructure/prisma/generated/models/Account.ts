@@ -32,6 +32,7 @@ export type AccountMinAggregateOutputType = {
   accessToken: string | null
   refreshToken: string | null
   idToken: string | null
+  issuer: string | null
   accessTokenExpiresAt: Date | null
   refreshTokenExpiresAt: Date | null
   scope: string | null
@@ -48,6 +49,7 @@ export type AccountMaxAggregateOutputType = {
   accessToken: string | null
   refreshToken: string | null
   idToken: string | null
+  issuer: string | null
   accessTokenExpiresAt: Date | null
   refreshTokenExpiresAt: Date | null
   scope: string | null
@@ -64,6 +66,7 @@ export type AccountCountAggregateOutputType = {
   accessToken: number
   refreshToken: number
   idToken: number
+  issuer: number
   accessTokenExpiresAt: number
   refreshTokenExpiresAt: number
   scope: number
@@ -82,6 +85,7 @@ export type AccountMinAggregateInputType = {
   accessToken?: true
   refreshToken?: true
   idToken?: true
+  issuer?: true
   accessTokenExpiresAt?: true
   refreshTokenExpiresAt?: true
   scope?: true
@@ -98,6 +102,7 @@ export type AccountMaxAggregateInputType = {
   accessToken?: true
   refreshToken?: true
   idToken?: true
+  issuer?: true
   accessTokenExpiresAt?: true
   refreshTokenExpiresAt?: true
   scope?: true
@@ -114,6 +119,7 @@ export type AccountCountAggregateInputType = {
   accessToken?: true
   refreshToken?: true
   idToken?: true
+  issuer?: true
   accessTokenExpiresAt?: true
   refreshTokenExpiresAt?: true
   scope?: true
@@ -203,6 +209,7 @@ export type AccountGroupByOutputType = {
   accessToken: string | null
   refreshToken: string | null
   idToken: string | null
+  issuer: string | null
   accessTokenExpiresAt: Date | null
   refreshTokenExpiresAt: Date | null
   scope: string | null
@@ -240,6 +247,7 @@ export type AccountWhereInput = {
   accessToken?: Prisma.StringNullableFilter<"Account"> | string | null
   refreshToken?: Prisma.StringNullableFilter<"Account"> | string | null
   idToken?: Prisma.StringNullableFilter<"Account"> | string | null
+  issuer?: Prisma.StringNullableFilter<"Account"> | string | null
   accessTokenExpiresAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   refreshTokenExpiresAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   scope?: Prisma.StringNullableFilter<"Account"> | string | null
@@ -257,6 +265,7 @@ export type AccountOrderByWithRelationInput = {
   accessToken?: Prisma.SortOrderInput | Prisma.SortOrder
   refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   idToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  issuer?: Prisma.SortOrderInput | Prisma.SortOrder
   accessTokenExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   refreshTokenExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   scope?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -277,6 +286,7 @@ export type AccountWhereUniqueInput = Prisma.AtLeast<{
   accessToken?: Prisma.StringNullableFilter<"Account"> | string | null
   refreshToken?: Prisma.StringNullableFilter<"Account"> | string | null
   idToken?: Prisma.StringNullableFilter<"Account"> | string | null
+  issuer?: Prisma.StringNullableFilter<"Account"> | string | null
   accessTokenExpiresAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   refreshTokenExpiresAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   scope?: Prisma.StringNullableFilter<"Account"> | string | null
@@ -294,6 +304,7 @@ export type AccountOrderByWithAggregationInput = {
   accessToken?: Prisma.SortOrderInput | Prisma.SortOrder
   refreshToken?: Prisma.SortOrderInput | Prisma.SortOrder
   idToken?: Prisma.SortOrderInput | Prisma.SortOrder
+  issuer?: Prisma.SortOrderInput | Prisma.SortOrder
   accessTokenExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   refreshTokenExpiresAt?: Prisma.SortOrderInput | Prisma.SortOrder
   scope?: Prisma.SortOrderInput | Prisma.SortOrder
@@ -316,6 +327,7 @@ export type AccountScalarWhereWithAggregatesInput = {
   accessToken?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
   refreshToken?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
   idToken?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
+  issuer?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
   accessTokenExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Account"> | Date | string | null
   refreshTokenExpiresAt?: Prisma.DateTimeNullableWithAggregatesFilter<"Account"> | Date | string | null
   scope?: Prisma.StringNullableWithAggregatesFilter<"Account"> | string | null
@@ -331,6 +343,7 @@ export type AccountCreateInput = {
   accessToken?: string | null
   refreshToken?: string | null
   idToken?: string | null
+  issuer?: string | null
   accessTokenExpiresAt?: Date | string | null
   refreshTokenExpiresAt?: Date | string | null
   scope?: string | null
@@ -348,6 +361,7 @@ export type AccountUncheckedCreateInput = {
   accessToken?: string | null
   refreshToken?: string | null
   idToken?: string | null
+  issuer?: string | null
   accessTokenExpiresAt?: Date | string | null
   refreshTokenExpiresAt?: Date | string | null
   scope?: string | null
@@ -363,6 +377,7 @@ export type AccountUpdateInput = {
   accessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refreshTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   scope?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -380,6 +395,7 @@ export type AccountUncheckedUpdateInput = {
   accessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refreshTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   scope?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -396,6 +412,7 @@ export type AccountCreateManyInput = {
   accessToken?: string | null
   refreshToken?: string | null
   idToken?: string | null
+  issuer?: string | null
   accessTokenExpiresAt?: Date | string | null
   refreshTokenExpiresAt?: Date | string | null
   scope?: string | null
@@ -411,6 +428,7 @@ export type AccountUpdateManyMutationInput = {
   accessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refreshTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   scope?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -427,6 +445,7 @@ export type AccountUncheckedUpdateManyInput = {
   accessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refreshTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   scope?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -453,6 +472,7 @@ export type AccountCountOrderByAggregateInput = {
   accessToken?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrder
   idToken?: Prisma.SortOrder
+  issuer?: Prisma.SortOrder
   accessTokenExpiresAt?: Prisma.SortOrder
   refreshTokenExpiresAt?: Prisma.SortOrder
   scope?: Prisma.SortOrder
@@ -469,6 +489,7 @@ export type AccountMaxOrderByAggregateInput = {
   accessToken?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrder
   idToken?: Prisma.SortOrder
+  issuer?: Prisma.SortOrder
   accessTokenExpiresAt?: Prisma.SortOrder
   refreshTokenExpiresAt?: Prisma.SortOrder
   scope?: Prisma.SortOrder
@@ -485,6 +506,7 @@ export type AccountMinOrderByAggregateInput = {
   accessToken?: Prisma.SortOrder
   refreshToken?: Prisma.SortOrder
   idToken?: Prisma.SortOrder
+  issuer?: Prisma.SortOrder
   accessTokenExpiresAt?: Prisma.SortOrder
   refreshTokenExpiresAt?: Prisma.SortOrder
   scope?: Prisma.SortOrder
@@ -546,6 +568,7 @@ export type AccountCreateWithoutUserInput = {
   accessToken?: string | null
   refreshToken?: string | null
   idToken?: string | null
+  issuer?: string | null
   accessTokenExpiresAt?: Date | string | null
   refreshTokenExpiresAt?: Date | string | null
   scope?: string | null
@@ -561,6 +584,7 @@ export type AccountUncheckedCreateWithoutUserInput = {
   accessToken?: string | null
   refreshToken?: string | null
   idToken?: string | null
+  issuer?: string | null
   accessTokenExpiresAt?: Date | string | null
   refreshTokenExpiresAt?: Date | string | null
   scope?: string | null
@@ -606,6 +630,7 @@ export type AccountScalarWhereInput = {
   accessToken?: Prisma.StringNullableFilter<"Account"> | string | null
   refreshToken?: Prisma.StringNullableFilter<"Account"> | string | null
   idToken?: Prisma.StringNullableFilter<"Account"> | string | null
+  issuer?: Prisma.StringNullableFilter<"Account"> | string | null
   accessTokenExpiresAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   refreshTokenExpiresAt?: Prisma.DateTimeNullableFilter<"Account"> | Date | string | null
   scope?: Prisma.StringNullableFilter<"Account"> | string | null
@@ -621,6 +646,7 @@ export type AccountCreateManyUserInput = {
   accessToken?: string | null
   refreshToken?: string | null
   idToken?: string | null
+  issuer?: string | null
   accessTokenExpiresAt?: Date | string | null
   refreshTokenExpiresAt?: Date | string | null
   scope?: string | null
@@ -636,6 +662,7 @@ export type AccountUpdateWithoutUserInput = {
   accessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refreshTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   scope?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -651,6 +678,7 @@ export type AccountUncheckedUpdateWithoutUserInput = {
   accessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refreshTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   scope?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -666,6 +694,7 @@ export type AccountUncheckedUpdateManyWithoutUserInput = {
   accessToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   refreshToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   idToken?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
+  issuer?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   accessTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   refreshTokenExpiresAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null
   scope?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
@@ -684,6 +713,7 @@ export type AccountSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs 
   accessToken?: boolean
   refreshToken?: boolean
   idToken?: boolean
+  issuer?: boolean
   accessTokenExpiresAt?: boolean
   refreshTokenExpiresAt?: boolean
   scope?: boolean
@@ -701,6 +731,7 @@ export type AccountSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Exten
   accessToken?: boolean
   refreshToken?: boolean
   idToken?: boolean
+  issuer?: boolean
   accessTokenExpiresAt?: boolean
   refreshTokenExpiresAt?: boolean
   scope?: boolean
@@ -718,6 +749,7 @@ export type AccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Exten
   accessToken?: boolean
   refreshToken?: boolean
   idToken?: boolean
+  issuer?: boolean
   accessTokenExpiresAt?: boolean
   refreshTokenExpiresAt?: boolean
   scope?: boolean
@@ -735,6 +767,7 @@ export type AccountSelectScalar = {
   accessToken?: boolean
   refreshToken?: boolean
   idToken?: boolean
+  issuer?: boolean
   accessTokenExpiresAt?: boolean
   refreshTokenExpiresAt?: boolean
   scope?: boolean
@@ -743,7 +776,7 @@ export type AccountSelectScalar = {
   updatedAt?: boolean
 }
 
-export type AccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "accountId" | "providerId" | "userId" | "accessToken" | "refreshToken" | "idToken" | "accessTokenExpiresAt" | "refreshTokenExpiresAt" | "scope" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["account"]>
+export type AccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "accountId" | "providerId" | "userId" | "accessToken" | "refreshToken" | "idToken" | "issuer" | "accessTokenExpiresAt" | "refreshTokenExpiresAt" | "scope" | "password" | "createdAt" | "updatedAt", ExtArgs["result"]["account"]>
 export type AccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -767,6 +800,7 @@ export type $AccountPayload<ExtArgs extends runtime.Types.Extensions.InternalArg
     accessToken: string | null
     refreshToken: string | null
     idToken: string | null
+    issuer: string | null
     accessTokenExpiresAt: Date | null
     refreshTokenExpiresAt: Date | null
     scope: string | null
@@ -1204,6 +1238,7 @@ export interface AccountFieldRefs {
   readonly accessToken: Prisma.FieldRef<"Account", 'String'>
   readonly refreshToken: Prisma.FieldRef<"Account", 'String'>
   readonly idToken: Prisma.FieldRef<"Account", 'String'>
+  readonly issuer: Prisma.FieldRef<"Account", 'String'>
   readonly accessTokenExpiresAt: Prisma.FieldRef<"Account", 'DateTime'>
   readonly refreshTokenExpiresAt: Prisma.FieldRef<"Account", 'DateTime'>
   readonly scope: Prisma.FieldRef<"Account", 'String'>
