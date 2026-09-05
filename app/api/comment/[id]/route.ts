@@ -29,6 +29,14 @@ export async function GET(
       );
     }
 
+    let isAdmin = false;
+    try {
+      const session = await CheckAuthentication();
+      isAdmin = session.user.role === "admin";
+    } catch {
+      isAdmin = false;
+    }
+
     const comment = await prisma.comment.findUnique({
       where: { id },
       include: {
@@ -36,6 +44,7 @@ export async function GET(
           select: { id: true, name: true, image: true },
         },
         responses: {
+          where: isAdmin ? {} : { status: "approved" },
           include: {
             user: {
               select: { id: true, name: true, image: true },
@@ -47,6 +56,14 @@ export async function GET(
     });
 
     if (!comment) {
+      return Response.notFound(
+        "Comment not found",
+        APIErrorCodes.notFound.COMMENT_NOT_FOUND,
+      );
+    }
+
+    // Public sees approved only; admins can preview pending/rejected
+    if (comment.status !== "approved" && !isAdmin) {
       return Response.notFound(
         "Comment not found",
         APIErrorCodes.notFound.COMMENT_NOT_FOUND,

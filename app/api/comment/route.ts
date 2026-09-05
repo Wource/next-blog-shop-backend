@@ -34,11 +34,11 @@ export async function GET(request: NextRequest) {
     const skip = (page - 1) * limit;
 
     const totalCount = await prisma.comment.count({
-      where: { blogId, parentId: null },
+      where: { blogId, parentId: null, status: "approved" },
     });
 
     const comments = await prisma.comment.findMany({
-      where: { blogId, parentId: null },
+      where: { blogId, parentId: null, status: "approved" },
       skip,
       take: limit,
       include: {
@@ -46,6 +46,7 @@ export async function GET(request: NextRequest) {
           select: { id: true, name: true, image: true },
         },
         responses: {
+          where: { status: "approved" },
           include: {
             user: {
               select: { id: true, name: true, image: true },
