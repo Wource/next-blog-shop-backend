@@ -13,6 +13,8 @@ model User {
 
   comments Comment[]
 
+  media Media[]
+
   @@unique([email])
   @@map("user")
 }

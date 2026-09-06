@@ -2,26 +2,28 @@ import { NextRequest } from "next/server";
 import { getSignedUrl } from "@aws-sdk/s3-request-presigner";
 import { s3 } from "@/lib/api/shared/infrastructure/s3";
 import CheckAuthentication from "@/lib/api/shared/services/CheckAuthentication";
+import CheckAuthorization from "@/lib/api/shared/services/CheckAuthorization";
 import {
   buildMediaObjectKey,
   buildMediaPublicUrl,
   createPutObjectCommand,
+  generateMediaSlug,
   getMediaContentType,
 } from "@/lib/api/storage/storage";
-import slugify from "slugify";
 import { ErrorResponse } from "@/lib/api/shared/services/ErrorResponse";
 import { Response } from "@/lib/api/shared/types/response_schema/base";
 import { APIErrorCodes } from "@/lib/api/shared/enums/ErrorCodes";
 import {
   presignedUploadZodSchema,
   PresignedUploadResponse,
-} from "@/lib/api/storage/schema/presigned/schema";
+} from "@/lib/api/media/schema/presigned/schema";
 
 const PRESIGNED_EXPIRES_IN_SECONDS = 60 * 10;
 
 export async function POST(req: NextRequest) {
   try {
-    await CheckAuthentication();
+    const session = await CheckAuthentication();
+    await CheckAuthorization(session, "Media", "CREATE");
 
     const body = await req.json();
     const { title, fileName, type } =
@@ -35,11 +37,10 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    const slug = slugify(title, { lower: true, strict: true });
+    const slug = generateMediaSlug(title);
     const contentType = getMediaContentType(type, extension);
 
-    const finalExtension = extension;
-    const objectKey = buildMediaObjectKey(type, slug, finalExtension);
+    const objectKey = buildMediaObjectKey(type, slug, extension);
     const path = buildMediaPublicUrl(objectKey);
     const command = createPutObjectCommand({ objectKey, contentType });
     const uploadUrl = await getSignedUrl(s3, command, {

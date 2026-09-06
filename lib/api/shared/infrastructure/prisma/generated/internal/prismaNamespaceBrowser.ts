@@ -61,6 +61,7 @@ export const ModelName = {
   Blog: 'Blog',
   Brand: 'Brand',
   Comment: 'Comment',
+  Media: 'Media',
   Product: 'Product',
   ProductTranslation: 'ProductTranslation'
 } as const
@@ -214,6 +215,24 @@ export const CommentScalarFieldEnum = {
 } as const
 
 export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
+
+
+export const MediaScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  slug: 'slug',
+  alt: 'alt',
+  type: 'type',
+  objectKey: 'objectKey',
+  url: 'url',
+  mimeType: 'mimeType',
+  sizeBytes: 'sizeBytes',
+  createdById: 'createdById',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+} as const
+
+export type MediaScalarFieldEnum = (typeof MediaScalarFieldEnum)[keyof typeof MediaScalarFieldEnum]
 
 
 export const ProductScalarFieldEnum = {

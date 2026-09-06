@@ -68,6 +68,11 @@ export type Brand = Prisma.BrandModel
  */
 export type Comment = Prisma.CommentModel
 /**
+ * Model Media
+ * 
+ */
+export type Media = Prisma.MediaModel
+/**
  * Model Product
  * 
  */

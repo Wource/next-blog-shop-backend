@@ -1,0 +1,18 @@
+model Media {
+  id          String     @id @default(cuid(2))
+  title       String
+  slug        String     @unique
+  alt         String?
+  type        MediaTypes
+  objectKey   String     @unique
+  url         String
+  mimeType    String
+  sizeBytes   Int
+  createdById String
+  createdBy   User       @relation(fields: [createdById], references: [id], onDelete: Cascade)
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+
+  @@index([createdById])
+  @@index([type])
+}

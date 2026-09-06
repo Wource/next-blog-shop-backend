@@ -3,15 +3,15 @@ import { MediaTypes } from "@/lib/api/shared/infrastructure/prisma/generated/cli
 import slugify from "slugify";
 import { s3 } from "@/lib/api/shared/infrastructure/s3";
 
-const S3_BUCKET = process.env.ARVANCLOUD_BUCKET_NAME;
-const S3_ENDPOINT = process.env.ARVANCLOUD_GET_ENDPOINT;
+const S3_BUCKET = process.env.MINIO_BUCKET_NAME;
+const S3_ENDPOINT = process.env.MINIO_ENDPOINT;
 
 export const MEDIA_TYPE_VALUES: MediaTypes[] = ["image", "thumbnail"];
 
 export function ensureS3Config() {
   if (!S3_BUCKET || !S3_ENDPOINT) {
     throw new Error(
-      "Missing ARVANCLOUD S3 env vars. Required: ARVANCLOUD_ENDPOINT, ARVANCLOUD_BUCKET_NAME.",
+      "Missing MinIO S3 env vars. Required: MINIO_ENDPOINT, MINIO_BUCKET_NAME.",
     );
   }
 }
@@ -26,28 +26,11 @@ export function normalizeExt(ext: string) {
 
 export function getMediaContentType(type: MediaTypes, extension: string) {
   const ext = extension.toLowerCase();
-  if (type === "image" || type === "thumbnail") {
-    if (ext === "jpg" || ext === "jpeg") return "image/jpeg";
-    if (ext === "png") return "image/png";
-    if (ext === "gif") return "image/gif";
-    if (ext === "webp") return "image/webp";
-    if (ext === "svg") return "image/svg+xml";
-    return "application/octet-stream";
-  }
-  if (type === "video") {
-    if (ext === "mp4") return "video/mp4";
-    if (ext === "webm") return "video/webm";
-    if (ext === "mkv") return "video/x-matroska";
-    return "application/octet-stream";
-  }
-  if (type === "pdf") return "application/pdf";
-  if (type === "compressed") {
-    if (ext === "zip") return "application/zip";
-    if (ext === "rar") return "application/vnd.rar";
-    if (ext === "7z") return "application/x-7z-compressed";
-    if (ext === "gz") return "application/gzip";
-    return "application/octet-stream";
-  }
+  if (ext === "jpg" || ext === "jpeg") return "image/jpeg";
+  if (ext === "png") return "image/png";
+  if (ext === "gif") return "image/gif";
+  if (ext === "webp") return "image/webp";
+  if (ext === "svg") return "image/svg+xml";
   return "application/octet-stream";
 }
 

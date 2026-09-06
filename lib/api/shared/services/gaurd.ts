@@ -75,6 +75,9 @@ export class Gaurd extends GaurdABC {
         actions: ["CREATE", "READ", "UPDATE"],
         fields: { status: [] },
       },
+      Media: {
+        actions: ["CREATE", "READ", "DELETE"],
+      },
     },
   };
 }

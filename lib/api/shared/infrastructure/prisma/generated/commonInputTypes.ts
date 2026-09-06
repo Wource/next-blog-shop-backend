@@ -209,6 +209,23 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedIntFilter<$PrismaModel>
 }
 
+export type EnumMediaTypesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MediaTypes | Prisma.EnumMediaTypesFieldRefInput<$PrismaModel>
+  in?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMediaTypesFilter<$PrismaModel> | $Enums.MediaTypes
+}
+
+export type EnumMediaTypesWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MediaTypes | Prisma.EnumMediaTypesFieldRefInput<$PrismaModel>
+  in?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMediaTypesWithAggregatesFilter<$PrismaModel> | $Enums.MediaTypes
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMediaTypesFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMediaTypesFilter<$PrismaModel>
+}
+
 export type JsonNullableFilter<$PrismaModel = never> =
 | Prisma.PatchUndefined<
     Prisma.Either<Required<JsonNullableFilterBase<$PrismaModel>>, Exclude<keyof Required<JsonNullableFilterBase<$PrismaModel>>, 'path'>>,
@@ -466,6 +483,23 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
+}
+
+export type NestedEnumMediaTypesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MediaTypes | Prisma.EnumMediaTypesFieldRefInput<$PrismaModel>
+  in?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMediaTypesFilter<$PrismaModel> | $Enums.MediaTypes
+}
+
+export type NestedEnumMediaTypesWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.MediaTypes | Prisma.EnumMediaTypesFieldRefInput<$PrismaModel>
+  in?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  notIn?: $Enums.MediaTypes[] | Prisma.ListEnumMediaTypesFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumMediaTypesWithAggregatesFilter<$PrismaModel> | $Enums.MediaTypes
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumMediaTypesFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumMediaTypesFilter<$PrismaModel>
 }
 
 export type NestedJsonNullableFilter<$PrismaModel = never> =
